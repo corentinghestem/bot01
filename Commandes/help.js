@@ -23,6 +23,7 @@ module.exports.run = async(bot, message, args) => {
         -invite | *send a link to invite me in your server*
 
         \`\`\`Fun commands\`\`\`
+        -cute <member> | *show how cute are you*
         -ping | *display your ping*
         -avatar | *Display your avatar*
         -slots | *Create a random slot of fruits*
