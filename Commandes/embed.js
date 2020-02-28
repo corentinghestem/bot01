@@ -13,7 +13,6 @@ module.exports.run = async(bot, message, args) =>{
        .setColor(color)
        .setDescription(messageEmbed)
        .setAuthor(`© ${bot.user.tag}`, bot.user.displayAvatarURL)
-       .setFooter(`Géneré par ${message.author.username}`, message.author.displayAvatarURL)
        .setTimestamp()
     message.channel.send(botEmbed);
 }
