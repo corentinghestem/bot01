@@ -11,6 +11,8 @@ module.exports.run = async(bot, message, args, tools) => {
     let pollMessage = await message.channel.send(pollEmbed)
     await pollMessage.react('✅');
     await pollMessage.react('❌');
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -poll ${args} `);
 
 };
 

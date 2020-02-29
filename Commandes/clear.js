@@ -12,6 +12,8 @@ module.exports.run = async(bot, message, args) => {
                   }, 5000)
             });
         }); 
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -clear ${args} `);
 }; 
 
 module.exports.help = {

@@ -48,6 +48,8 @@ module.exports.run = async(bot, message, args) => {
     message.author.send(utilityEmbed)
     message.author.send(funEmbed)
     message.channel.send(`**Check your dm ${message.author.username} !**`)
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -help ${args} `);
 };
 
 module.exports.help = {

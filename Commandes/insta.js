@@ -36,6 +36,8 @@ module.exports = {
             **- Following:** ${account.edge_follow.count}
             **- Private account:** ${account.is_private ? "Yes 🔐" : "Nope 🔓"}`);
         message.channel.send(embed);
+        console.log(`> Commande réalisée par ${message.author.username} :
+        -insta ${args} `);
     }
 }
 

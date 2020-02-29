@@ -13,6 +13,8 @@ module.exports.run = async(bot, message, args) => {
         .setTimestamp()
         .setThumbnail(message.guild.iconURL)
     message.channel.send(serverEmbed)
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -server ${args} `);
 }
 
 module.exports.help = {

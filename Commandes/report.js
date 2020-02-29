@@ -7,6 +7,8 @@ module.exports = {
     description: "Reports a member",
     usage: "<mention, id>",
     run: async (client, message, args) => {
+        console.log(`> Commande réalisée par ${message.author.username} :
+        -report ${args} `);
         if (message.deletable) message.delete();
         let rMember = message.mentions.members.first() || message.guild.members.get(args[0]);
         if (!rMember)

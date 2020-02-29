@@ -60,6 +60,8 @@ module.exports = {
             embed.addField('Currently playing', stripIndents`** Name:** ${member.user.presence.game.name}`);
 
         message.channel.send(embed);
+        console.log(`> Commande réalisée par ${message.author.username} :
+        -info ${args} `);
     }
 }
 

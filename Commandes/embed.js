@@ -7,13 +7,17 @@ module.exports.run = async(bot, message, args) =>{
     if(!color) return message.channel.send("Don't forget to choose a color !")
     let messageEmbed = args.slice(1).join(" ");
     if(!messageEmbed) return message.channel.send("You have to enter a message for your embed !")
+
     let botEmbed = new Discord.RichEmbed()
        .setColor(color)
        .setDescription(messageEmbed)
        .setAuthor(`© ${bot.user.tag}`, bot.user.displayAvatarURL)
        .setTimestamp()
     message.channel.send(botEmbed);
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -embed ${args} `);
 }
+
 module.exports.help = {
     name: "embed"
 }

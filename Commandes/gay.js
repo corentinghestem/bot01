@@ -22,6 +22,8 @@ module.exports.run = async(bot, message, args) => {
     let person = getMember(message, args[0]);
     const gay = Math.floor(Math.random() * (100 - 0 + 1) + 0);
     message.channel.send(person.displayName + " is " + gay + "% gay !")
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -gay ${args} `);
 }
 
 
