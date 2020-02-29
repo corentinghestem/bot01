@@ -32,25 +32,6 @@ fs.readdir('./Events/', (error, f) => {
 });
 
 
-//COMMANDES TRAFIC
-bot.on("guildMemberAdd", user =>{
-    let joinEmbed = new Discord.RichEmbed()
-        .setColor("#5cf011")
-        .setAuthor(user.user.username, user.user.displayAvatarURL)
-        .setDescription("**Give a warm welcome to our new member **" + user + "** !**")
-        .setFooter("Don't forget to ready the rules !")
-        .setTimestamp()
-    user.guild.channels.get("678346457438355477").send(joinEmbed)
-});
-bot.on("guildMemberRemove", user =>{
-    let leaveEmbed = new Discord.RichEmbed()
-        .setColor("#ff0000")
-        .setAuthor(user.user.username, user.user.displayAvatarURL)
-        .setDescription(user + "** just left us ! There's something wrong with him.**")
-        .setFooter("Bye :)")
-        .setTimestamp()
-    user.guild.channels.get("678346457438355477").send(leaveEmbed)
-});
 
 bot.login("NTM3MzQ3NTY4MjM4MTk4Nzg1.XlqSBg.A7zHowmmMPN59B9_XjE-JoUWOOg");
 
