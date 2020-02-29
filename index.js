@@ -2,23 +2,9 @@ const Discord = require("discord.js");
 const bot = new Discord.Client();
 const guild = new Discord.Guild();
 const fs = require("fs");
-
 bot.commands = new Discord.Collection();
+const prefix = "_";
 
-const prefix = "-";
-bot.on("message", async message => {
-    if (message.author.bot) return;
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return;
-    if (!message.member) message.member = await message.guild.fetchMember(message);
-    const args = message.content.slice(prefix.length).trim().split(/ +/g);
-    const cmd = args.shift().toLowerCase();
-    if (cmd.length === 0) return;
-    let command = bot.commands.get(cmd);
-    if (!command) command = bot.commands.get(bot.aliases.get(cmd));
-    if (command) 
-        command.run(bot, message, args);
-});
 
 //COMMAND HANDLER
 fs.readdir("./Commandes/", (err, files) =>{
@@ -34,11 +20,15 @@ fs.readdir("./Commandes/", (err, files) =>{
         bot.commands.set(fileGet.help.name, fileGet);
     });
 });
+fs.readdir('./Events/', (error, f) => {
+    if (error) { return console.error(error); }
+        console.log(`${f.length} events chargés`);
 
-bot.on("ready", async () => {
-    console.log(" ");
-    console.log("Connecté en tant que: " + bot.user.tag);
-    bot.user.setActivity(`-help | ${bot.guilds.size} servers`)
+        f.forEach((f) => {
+            let events = require(`./Events/${f}`);
+            let event = f.split('.')[0];
+            bot.on(event, events.bind(null, bot));
+        });
 });
 
 
@@ -48,7 +38,7 @@ bot.on("guildMemberAdd", user =>{
         .setColor("#5cf011")
         .setAuthor(user.user.username, user.user.displayAvatarURL)
         .setDescription("**Give a warm welcome to our new member **" + user + "** !**")
-        .setFooter("Dm Corentin#7595 to invite me in your server")
+        .setFooter("Don't forget to ready the rules !")
         .setTimestamp()
     user.guild.channels.get("678346457438355477").send(joinEmbed)
 });
@@ -57,10 +47,10 @@ bot.on("guildMemberRemove", user =>{
         .setColor("#ff0000")
         .setAuthor(user.user.username, user.user.displayAvatarURL)
         .setDescription(user + "** just left us ! There's something wrong with him.**")
-        .setFooter("We hope you won't leave us like him ! | By Corentin")
+        .setFooter("Bye :)")
         .setTimestamp()
     user.guild.channels.get("678346457438355477").send(leaveEmbed)
 });
 
-bot.login("NTM3MzQ3NTY4MjM4MTk4Nzg1.Xlbc3w.UMPVdkNBdgwjLP7lKsQlVElsAPQ");
+bot.login("NTM3MzQ3NTY4MjM4MTk4Nzg1.XlqSBg.A7zHowmmMPN59B9_XjE-JoUWOOg");
 
