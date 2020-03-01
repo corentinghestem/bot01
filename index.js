@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 const guild = new Discord.Guild();
 const fs = require("fs");
 bot.commands = new Discord.Collection();
-const prefix = "-";
+const prefix = "a!";
 
 
 //COMMAND HANDLER
