@@ -7,19 +7,21 @@ module.exports.run = async(bot, message, args) => {
         .setDescription(` 
         **Hey ${message.author.username}, welcome to my documentation !** 
         My prefix is a!
-        I have 18 commands. 
+        I have 20 commands. 
         
         *If you have any kind of problem with my commands, questions to
          ask, or suggestions, please dm directly my creator Corentin#7595*`)
         .setThumbnail("https://cdn.discordapp.com/attachments/678389386446110731/682539959521116202/ash-logo.png")
     let moderationEmbed = new Discord.RichEmbed()
         .setColor("#ff0000")
-        .setTitle("Moderation commands [4]")
+        .setTitle("Moderation commands [6]")
         .setDescription(`
         a!kick <someone> | *kick any member*
         a!ban <someone> | *ban any member*
         a!report <someone> <reason> | *report a member to the staff*
-        a!clear <number of messages to delete> | *delete a number of messages* `)
+        a!clear <number of messages to delete> | *delete a number of messages* 
+        a!(un)mute <someone> <time> | *(un)mute someone for a certain duration*
+        `)
     
     let utilityEmbed = new Discord.RichEmbed()
         .setColor("#3e68fd")
@@ -42,7 +44,7 @@ module.exports.run = async(bot, message, args) => {
         a!gay <someone> | *show how gay is someone*
         a!ping | *display your ping*
         a!avatar <someone> | *display the avatar of someone*
-        a!rps | *dreate a Rock / Paper / Scissors game*
+        a!rps | *create a Rock / Paper / Scissors game*
         a!meme | *send a random meme from reddit* `)
         .setFooter(`Thank you for downloading me, if you need any help click here`)
         .setTimestamp()
