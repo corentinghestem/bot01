@@ -1,9 +1,13 @@
 const Discord = require("discord.js");
 
-
 module.exports.run = async(bot, message, args) => {
-    if (!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) { return message.channel.send('Vous n\'avez pas les permissions !'); } 
-    else if (isNaN(args[0])) { return message.channel.send('**You have to specify a number of messages to delete !**'); }
+    message.delete();
+    console.log(`> Commande réalisée par ${message.author.username} :
+    -clear ${args} `);
+    if(!message.author.id === "450341492825915402") {
+         if(!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) { return message.channel.send("You don't have permissions btw").then(m => m.delete(5000)) }
+    }
+    else if (isNaN(args[0])) { return message.channel.send('**You have to specify a number of messages to delete !**').then(m => m.delete(5000)) }
     message.channel.bulkDelete(Number(args[0]) + 1)
         .then((messages) => { 
             message.channel.send(`**${messages.size - 1} messages just got deleted !**`).then((m) => {
@@ -12,8 +16,6 @@ module.exports.run = async(bot, message, args) => {
                   }, 5000)
             });
         }); 
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -clear ${args} `);
 }; 
 
 module.exports.help = {

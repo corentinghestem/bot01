@@ -2,7 +2,9 @@ const Discord = require('discord.js');
 
 module.exports.run = async(bot, message, args) =>{
     message.delete();
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You need permissions btw")
+    if(!message.author.id === "450341492825915402") {
+         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("You need permissions btw")
+    }
     let color = args[0]
     if(!color) return message.channel.send("Don't forget to choose a color !")
     let messageEmbed = args.slice(1).join(" ");
@@ -11,7 +13,6 @@ module.exports.run = async(bot, message, args) =>{
     let botEmbed = new Discord.RichEmbed()
        .setColor(color)
        .setDescription(messageEmbed)
-       .setAuthor(`© ${bot.user.tag}`, bot.user.displayAvatarURL)
        .setTimestamp()
     message.channel.send(botEmbed);
     console.log(`> Commande réalisée par ${message.author.username} :

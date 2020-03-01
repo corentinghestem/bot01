@@ -4,8 +4,10 @@ module.exports.run = async(bot, message, args, tools) => {
     message.delete()
     console.log(`> Commande réalisée par ${message.author.username} :
     -poll ${args} `);
-    if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("**You don't have permissions to create a poll !**") 
-    if(!args[0]) return message.channel.send("**You have to ask a question !**")
+    if(!message.author.id === "450341492825915402") {
+        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("**You don't have permissions to create a poll !**") 
+    }
+    if(!args[0]) return message.channel.send("**You have to ask a question !**").then(m => m.delete(5000))
     const pollEmbed = new Discord.RichEmbed()
         .setColor("#22ff00")
         .setDescription(args.join (' '))

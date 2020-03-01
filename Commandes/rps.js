@@ -16,9 +16,9 @@ module.exports = {
     description: "Rock Paper Scissors game. React to one of the emojis to play the game.",
     usage: "rps",
     run: async (client, message, args) => {
+        message.delete()
         console.log(`> Commande réalisée par ${message.author.username} :
         -rps ${args} `);
-        message.delete()
         const embed = new RichEmbed()
             .setColor("#fbfbfb")
             .setFooter(message.author.username, message.author.displayAvatarURL)
