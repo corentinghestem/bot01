@@ -33,5 +33,5 @@ fs.readdir('./Events/', (error, f) => {
 
 
 
-bot.login("NTM3MzQ3NTY4MjM4MTk4Nzg1.XlqSBg.A7zHowmmMPN59B9_XjE-JoUWOOg");
+bot.login("NTM3MzQ3NTY4MjM4MTk4Nzg1.XlvB2Q.f9A1mQtbn-5iqRGZMIAapHgo5Nc");
 
