@@ -5,7 +5,7 @@ module.exports = (bot) => {
         }
     })
     console.log(" ");
-    console.log("Connecté en tant que: " + bot.user.tag);
+    console.log("Connecté en tant que " + bot.user.tag + " et présent sur " + bot.guilds.size + " serveurs !");
     console.log(" ");
     console.log("Liste des commandes activées :");
 };
