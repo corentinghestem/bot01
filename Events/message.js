@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const prefix = '-';
+const prefix = 'a!';
 
 module.exports = (bot, message) => {
     if (message.author.bot || message.channel.type === 'dm') { return; }

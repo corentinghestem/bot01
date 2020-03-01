@@ -1,7 +1,7 @@
 module.exports = (bot) => {
     bot.user.setPresence({
         game: {
-            name: `-help | ${bot.users.size} members`
+            name: `a!help | ${bot.users.size} members `
         }
     })
     console.log(" ");
