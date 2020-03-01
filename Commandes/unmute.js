@@ -10,7 +10,7 @@ module.exports.run = async(bot, message, args) => {
     }
     let mutedMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!mutedMember) return message.channel.send("**You have to mention someone to unmute.**").then((m) => m.delete(5000))
-    let mutedRole = message.guild.roles.find(role => role.name === "muted");
+    let mutedRole = message.guild.roles.find(role => role.name === "Muted");
     let mutedGuid = new Discord.RichEmbed()
        .setColor('#ffb92b')
        .setTitle(`**You need to have a \"Muted\" role to be able to mute someone.**`)
