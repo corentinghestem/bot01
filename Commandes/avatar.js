@@ -20,8 +20,6 @@ module.exports.run = async(bot, message, args) => {
        .setDescription("**Hey " + message.author.username + ", this is the avatar you asked me :**")
        .setImage(member.user.displayAvatarURL)
     message.channel.send(avatarEmbed)   
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -avatar ${args} `);
 };
 
 module.exports.help = {

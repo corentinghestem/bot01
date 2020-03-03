@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) => {
     message.delete();
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -clear ${args} `);
     if(!message.author.id === "450341492825915402") {
          if(!message.guild.member(message.author).hasPermission('MANAGE_MESSAGES')) { return message.channel.send("You don't have permissions btw").then(m => m.delete(5000)) }
     }

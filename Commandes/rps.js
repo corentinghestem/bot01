@@ -17,8 +17,6 @@ module.exports = {
     usage: "rps",
     run: async (client, message, args) => {
         message.delete()
-        console.log(`> Commande réalisée par ${message.author.username} :
-        -rps ${args} `);
         const embed = new RichEmbed()
             .setColor("#fbfbfb")
             .setFooter(message.author.username, message.author.displayAvatarURL)

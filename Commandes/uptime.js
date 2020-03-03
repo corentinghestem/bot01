@@ -16,8 +16,6 @@ module.exports.run = (bot, message, args) => {
     .setColor(`#ff0000`)
     .setDescription(`**Im online since ` + `${uptime}**`)
   message.channel.send(uptimeEmbed);
-  console.log(`> Commande réalisée par ${message.author.username} :
-  -uptime ${args} `);
 };
 
 function convertMS(ms) {

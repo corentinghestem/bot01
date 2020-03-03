@@ -2,8 +2,6 @@ const Discord = require('discord.js');
 
 module.exports.run = async(bot, message, args, tools) => {
     message.delete()
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -poll ${args} `);
     if(!message.author.id === "450341492825915402") {
         if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send("**You don't have permissions to create a poll !**") 
     }

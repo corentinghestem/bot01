@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) =>{
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -ban ${args} `);
     message.delete()
     if(!message.author.id === "450341492825915402") {
       if (!message.guild.member(message.author).hasPermission('BAN_MEMBERS')) { return message.channel.send('**＞︿＜ - You don\'t have permissions to ban !**').then((m) => {

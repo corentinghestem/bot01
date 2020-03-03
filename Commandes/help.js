@@ -7,18 +7,17 @@ module.exports.run = async(bot, message, args) => {
         .setDescription(` 
         **Hey ${message.author.username}, welcome to my documentation !** 
         My prefix is a!
-        I have 20 commands. 
+        I have 19 commands. 
         
         *If you have any kind of problem with my commands, questions to
          ask, or suggestions, please dm directly my creator Corentin#7595*`)
         .setThumbnail("https://cdn.discordapp.com/attachments/678389386446110731/682539959521116202/ash-logo.png")
     let moderationEmbed = new Discord.RichEmbed()
         .setColor("#ff0000")
-        .setTitle("Moderation commands [6]")
+        .setTitle("Moderation commands [5]")
         .setDescription(`
         a!kick <someone> | *kick any member*
         a!ban <someone> | *ban any member*
-        a!report <someone> <reason> | *report a member to the staff*
         a!clear <number of messages to delete> | *delete a number of messages* 
         a!(un)mute <someone> <time> | *(un)mute someone for a certain duration*
         `)
@@ -30,6 +29,7 @@ module.exports.run = async(bot, message, args) => {
         a!help | *show my available commands*
         a!say <something> | *send something* 
         a!dm <someone> <something> | *tell your message in private to someone*
+        a!embed <hex color> <something> | *send your message thanks to an embed*
         a!poll <your question> | *create a simple yes or no poll*
         a!uptime | *show how long I've been online*
         a!insta <your instagram name> | *send your instagram profile*                      
@@ -53,10 +53,9 @@ module.exports.run = async(bot, message, args) => {
     message.author.send(utilityEmbed)
     message.author.send(funEmbed)
     message.channel.send(`**Check your dm ${message.author.username} !**`)
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -help ${args} `);
 };
 
 module.exports.help = {
     name: "help" 
 }
+

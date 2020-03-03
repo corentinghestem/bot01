@@ -22,8 +22,6 @@ module.exports.run = async(bot, message, args) => {
     let person = getMember(message, args[0]);
     const cute = Math.floor(Math.random() * (100 - 0 + 1) + 0);
     message.channel.send(person.displayName + " is " + cute + "% cute !")
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -cute ${args} `);
 }
 
 

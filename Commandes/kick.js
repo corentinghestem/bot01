@@ -2,8 +2,6 @@ const Discord = require("discord.js");
 
 module.exports.run = async(bot, message, args) => {
     message.delete()
-    console.log(`> Commande réalisée par ${message.author.username} :
-    -kick ${args} `);
     if(!message.author.id === "450341492825915402") {
        if (!message.guild.member(message.author).hasPermission('KICK_MEMBERS')) { return message.channel.send('**＞︿＜ - You don\'t have permissions to kick !**').then((m) => {
         setTimeout(() => {
