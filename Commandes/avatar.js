@@ -19,6 +19,7 @@ module.exports.run = async(bot, message, args) => {
     let avatarEmbed = new Discord.RichEmbed()
        .setDescription("**Hey " + message.author.username + ", this is the avatar you asked me :**")
        .setImage(member.user.displayAvatarURL)
+    if(!message.guild.member(bot.user).hasPermission('ATTACH_FILES')) return message.channel.send("**I don't have permissions to attach files !**").then((m) => m.delete(5000));
     message.channel.send(avatarEmbed)   
 };
 

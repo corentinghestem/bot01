@@ -11,7 +11,7 @@ module.exports = {
     run: async (client, message, args) => {
         const name = args.join(" ");
         if (!name) {
-            return message.channel.send(`Maybe it\'s useful to actually search for someone ${message.author.username} !`)
+            return message.channel.send(`**Maybe it\'s useful to actually search for someone ${message.author.username} !**`)
                 .then(m => m.delete(5000));
         }
         const url = `https://instagram.com/${name}/?__a=1`; 
@@ -19,7 +19,7 @@ module.exports = {
         try {
             res = await fetch(url).then(url => url.json());
         } catch (e) {
-            return message.reply("I couldn't find that account... :(")
+            return message.reply("**I couldn't find that account...**")
                 .then(m => m.delete(5000));
         }
         const account = res.graphql.user;

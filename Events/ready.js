@@ -1,7 +1,8 @@
 module.exports = (bot) => {
     const botStatut= [
         "Use a!help",
-        `${bot.guilds.size} servers | ${bot.users.size} members`
+        `${bot.guilds.size} servers | ${bot.users.size} members`,
+        "dm to have help"
     ];
     setInterval(function() {
         var statutID = Math.floor(Math.random() * Math.floor(botStatut.length));

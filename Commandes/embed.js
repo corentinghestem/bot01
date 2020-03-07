@@ -1,9 +1,9 @@
 const Discord = require('discord.js');
-
+const config = require("../storage/config.json");
 module.exports.run = async(bot, message, args) =>{
     message.delete();
-    if(!message.author.id === "450341492825915402") {
-         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**You don't have permissions to send an embed !**").then((m) => m.delete(5000))
+    if(!message.author.id === config.myUserID) {
+         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("**You don't have permissions to manage messages !**").then((m) => m.delete(5000))
     }
     let color = args[0]
     if(!color) return message.channel.send("**Don't forget to choose a color for your embed !**").then((m) => m.delete(5000))
@@ -20,7 +20,6 @@ module.exports.run = async(bot, message, args) =>{
        https://www.color-hex.com/
     `)
     if(!color.startsWith("#")) return message.channel.send(errorMessage)
-
 
     let messageEmbed = args.slice(1).join(" ");
     if(!messageEmbed) return message.channel.send("**Don't forget to choose a color for your embd !**").then((m) => m.delete(5000))

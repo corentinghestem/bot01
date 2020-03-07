@@ -7,7 +7,6 @@ module.exports.run = async(bot, message, args) => {
         .addField("Creation :", message.guild.createdAt)
         .addField("Membercount :", `${message.guild.memberCount} members`)
         .addField("Channelcount :", `${message.guild.channels.size} channels`)
-        .addField("Position :", message.guild.position + " (not ready)")
         .addField("Owner :", message.guild.owner)
         .setFooter(`ID: ${message.guild.id}`)
         .setTimestamp()

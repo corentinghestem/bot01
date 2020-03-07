@@ -1,11 +1,11 @@
 const Discord = require('discord.js');
 const ms = require('ms');
-
+const config = require("../storage/config.json");
 module.exports.run = async(bot, message, args) => {
     message.delete()
     if(!message.guild.member(bot.user).hasPermission('MANAGE_ROLES')) { 
         return message.channel.send('**I don\'t have permissions to mute someone !**').then((m) => m.delete(5000)); }
-    if(!message.author.id === "450341492825915402") {
+    if(!message.author.id === config.myUserID) {
       if(!message.guild.member(message.author).hasPermission('MANAGE_ROLES')) {
         return message.channel.send("**You don't have permissions to mute someone !").then((m) => m.delete(5000)) }
     }
