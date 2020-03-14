@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const config = require("../storage/config.json");
 module.exports.run = async(bot, message, args) =>{
     message.delete()
-    if(!message.author.id === webkitConvertPointFromPageToNode.myUserID) {
+    if(!message.author.id === config.myUserID) {
       if (!message.guild.member(message.author).hasPermission('BAN_MEMBERS')) { return message.channel.send('**You don\'t have permissions to ban !**').then((m) => {
         setTimeout(() => {
             m.delete()
