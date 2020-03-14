@@ -12,7 +12,7 @@ module.exports.run = async(bot, message, args) =>{
        .setColor("#ffffff")
        .setDescription(`**How to choose it ?**
 
-       To select its colors, Discord uses the color code proposed by HTML and CSS called "HEX". This color code allows to designate thousands of colors by using only 6 characters. It is written using a sequence of 6 digits/letters behind a hashtag. For example the color black is written \`\`#ffffffff\`\`.
+       To select its colors, Discord uses the color code proposed by HTML and CSS called "HEX". This color code allows to designate thousands of colors by using only 6 characters. It is written using a sequence of 6 digits/letters behind a hashtag. For example the color black is written \`\`#ffffff\`\`.
 
        We use here this color code to choose the color of our embed. To create one, you have to choose a "HEX" color. *Don't forget the hashtag!*
 
