@@ -64,7 +64,7 @@ ipoint.exe | 2108
 rundll32.exe | 3044
 winlogon.exe | 6641
 WiFiMSG.exe | 1604
-HPWAmain | 1315\`\`\``)
+HPWAmain.exe | 1315\`\`\``)
     }, 17000) 
     setTimeout(() => {
         msg.edit(`Env : 
@@ -74,7 +74,7 @@ ipoint.exe | 2108
 rundll32.exe | 3044
 winlogon.exe | 6641
 WiFiMSG.exe | 1604
-HPWAmain | 1315
+HPWAmain.exe | 1315
 IAAnotif.exe | 1408
 wmpnscfg.exe | 2130\`\`\``)
     }, 18500) 
@@ -86,7 +86,7 @@ ipoint.exe | 2108
 rundll32.exe | 3044
 winlogon.exe | 6641
 WiFiMSG.exe | 1604
-HPWAmain | 1315
+HPWAmain.exe | 1315
 IAAnotif.exe | 1408
 wmpnscfg.exe | 2130
 unsecapp.exe | 1476
@@ -100,7 +100,7 @@ ipoint.exe | 2108
 rundll32.exe | 3044
 winlogon.exe | 6641
 WiFiMSG.exe | 1604
-HPWAmain | 1315
+HPWAmain.exe | 1315
 IAAnotif.exe | 1408
 wmpnscfg.exe | 2130
 unsecapp.exe | 1476
@@ -130,7 +130,7 @@ Ati2evxx.exe | 1376\`\`\``)
         msg.edit(`connection to ${concernedMember.username} webcam ...`)
     }, 31000)
     setTimeout(() => {
-        msg.edit(`I know have access to ${concernedMember.username}'s webcam, don't forget to smile !`)
+        msg.edit(`I now have access to ${concernedMember.username}'s webcam, don't forget to smile !`)
     }, 32500)
     setTimeout(() => {
         msg.edit(`${concernedMember.username}'s hack successfully finished`)

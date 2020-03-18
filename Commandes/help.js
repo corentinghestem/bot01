@@ -12,12 +12,12 @@ module.exports.run = async(bot, message, author) => {
         .setDescription(` 
         **Hey ${message.author.username}, welcome to my documentation !** 
         My prefix is **${config.prefix}**
-        I have 24 commands. `)
+        I have 26 commands. `)
         .setFooter("If you have any kind of question/suggestion you can just dm me !")
         .setThumbnail("https://cdn.discordapp.com/attachments/678389386446110731/682539959521116202/ash-logo.png")
         .addField("**Moderation commands [5]**", "``ban``, ``kick``, ``(un)mute``, ``clear``")
         .addField("**Utility commands [10]**", "``help``, ``say``, ``dm``, ``embed``, ``poll``, ``uptime``, ``insta``, ``server``, ``info``, ``invite``")
-        .addField("**Fun commands [9]**", "``cute``, ``gay``, ``ping``, ``avatar``, ``rps``, ``meme``, ``dog``, ``cat``, ``hack``")
+        .addField("**Fun commands [11]**", "``cute``, ``gay``, ``ping``, ``iq``, ``avatar``, ``rps``, ``meme``, ``dog``, ``cat``, ``hack``, ``step``")
     const filter = (reaction, user) => ['685952345456115737', '685951908909023277'].includes(reaction.emoji.id) && !user.bot;
        await firstEmbed.react('685952345456115737');
        await firstEmbed.react('685951908909023277');
