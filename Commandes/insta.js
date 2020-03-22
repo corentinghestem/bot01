@@ -8,10 +8,10 @@ module.exports = {
     category: "info",
     description: "Find out some nice instagram statistics",
     usage: "<name>",
-    run: async (client, message, args) => {
+    run: async (bot, message, args) => {
         const name = args.join(" ");
         if (!name) {
-            return message.channel.send(`**Maybe it\'s useful to actually search for someone ${message.author.username} !**`)
+            return message.channel.send(`**Il faut choisir un profil à regarder**`)
                 .then(m => m.delete(5000));
         }
         const url = `https://instagram.com/${name}/?__a=1`; 
@@ -19,7 +19,7 @@ module.exports = {
         try {
             res = await fetch(url).then(url => url.json());
         } catch (e) {
-            return message.reply("**I couldn't find that account...**")
+            return message.reply("**Je ne trouve pas cet utilisateur sur Instagram**")
                 .then(m => m.delete(5000));
         }
         const account = res.graphql.user;
@@ -28,13 +28,12 @@ module.exports = {
             .setTitle(account.full_name)
             .setURL(`https://instagram.com/${name}`)
             .setThumbnail(account.profile_pic_url_hd)
-            .addField("Profile information", stripIndents`**- Username:** ${account.username}
-            **- Full name:** ${account.full_name}
-            **- Biography:** ${account.biography.length == 0 ? "none" : account.biography}
-            **- Posts:** ${account.edge_owner_to_timeline_media.count}
-            **- Followers:** ${account.edge_followed_by.count}
-            **- Following:** ${account.edge_follow.count}
-            **- Private account:** ${account.is_private ? "Yes 🔐" : "Nope 🔓"}`);
+            .addField("Information du profil :", stripIndents`**- Pseudo:** ${account.username}
+            **- Nom complet:** ${account.full_name}
+            **- Biographie${account.edge_owner_to_timeline_media.count}
+            **- Abonnés:** ${account.edge_followed_by.count}
+            **- Abonnements:** ${account.edge_follow.count}
+            **- Statut:** ${account.is_private ? "Privé 🔐" : "Public 🔓"}`);
         message.channel.send(embed);
     }
 }

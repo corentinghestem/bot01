@@ -5,6 +5,7 @@ const config = require("./storage/config.json");
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 
+//LOGS DE SERVEURS
 bot.on('guildCreate', guild => {
     const formatDate = function(date) {
         return new Intl.DateTimeFormat('en-US').format(date)
@@ -46,6 +47,7 @@ bot.on('guildDelete', guild => {
        .setTimestamp()
     bot.channels.get(config.logCommandsChannel).send(createEmbed)
 });
+
 //COMMAND HANDLER
 fs.readdir("./Commandes/", (err, files) =>{
     if(err) console.log(err);
@@ -54,15 +56,15 @@ fs.readdir("./Commandes/", (err, files) =>{
         console.log("Aucun fichier de commande !")
         return
     };
+    console.log(`${jsFiles.length} commands successfully ready`)
     jsFiles.forEach((f, i) =>{
         var fileGet = require("./Commandes/" + f);
-        console.log("Fichier de commande " + f + " récupéré avec succés !");
         bot.commands.set(fileGet.help.name, fileGet);
     });
 });
 fs.readdir('./Events/', (error, f) => {
     if (error) { return console.error(error); }
-        console.log(`${f.length} events chargés`);
+        console.log(`${f.length} events successfully ready`);
 
         f.forEach((f) => {
             let events = require(`./Events/${f}`);
@@ -70,7 +72,5 @@ fs.readdir('./Events/', (error, f) => {
             bot.on(event, events.bind(null, bot));
         });
 });
-
- 
 bot.login(config.token);
 

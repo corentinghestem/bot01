@@ -3,30 +3,29 @@ const config = require("../storage/config.json");
 module.exports.run = async(bot, message, args) => {
     message.delete()
     if(!message.guild.member(bot.user).hasPermission('MANAGE_ROLES')) { 
-        return message.channel.send('**I don\'t have permissions to unmute someone !**').then((m) => m.delete(5000)); }
+        return message.channel.send('**Je n\'ai pas la permission de gérer les rôles**').then((m) => m.delete(5000)); }
     if(!message.author.id === config.myUserID) {
       if(!message.guild.member(message.author).hasPermission('MANAGE_ROLES')) {
-        return message.channel.send("**You don't have permissions to unmute someone !").then((m) => m.delete(5000)) }
+        return message.channel.send("**Tu n'as pas la permission de gérer les rôles").then((m) => m.delete(5000)) }
     }
     let mutedMember = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!mutedMember) return message.channel.send("**You have to mention someone to unmute.**").then((m) => m.delete(5000))
-    let mutedRole = message.guild.roles.find(role => role.name === "Muted");
+    let mutedRole = message.guild.roles.find(role => role.name === "Muet");
     let mutedGuid = new Discord.RichEmbed()
-    .setColor('#ffffff')
-    .setTitle(`**You need to have a \"Muted\" role to be able to mute someone.**`)
-    
-    .setDescription(`**How to create it ?**`)
-    .addField(`First condition :`,`The role have to be called \"Muted\".
-    *Don't forget the capital letter.*`)
-    .addField(`Second condition :`,`The role must have **ALL** possible permissions disabled.
-    *You can disable it at by going at the bottom of the role permissions page.*`)
-    .addField(`Third condition :`,`The role have to be as high as possible \(after admin roles\) in the role hierarchy.
-    *Don\'t forget that I can't mute an admin.*`)
-    .setFooter('If one of this condition isn\'t respected, the command won\'t work.')
+       .setColor('#ffffff')
+       .setTitle(`**Il faut créer un rôle \"Muet\" pour pouvoir mute quelqu'un.**`)
+       
+       .setDescription(`**Comment le créer ?**`)
+       .addField(`Première condition :`,`Le rôle doit être appelé exactement \"Muet\".
+       *N'oublie pas la majuscule*`)
+       .addField(`Deuxième condition :`,`Le rôle ne doit avoir **AUCUNE** permissions.
+       *On peut toutes les supprimer d'un coup en allant en bas de la page de gestion du rôle concerné*`)
+       .addField(`Troisième condition :`,`Le rôle doit être le plus haut possible \(après les rôles d'administration\) dans la hierarchie des rôles.
+       *Et oui, je ne peux pas mute un administrateur*`)
+       .setFooter('Si l\'une de ces trois conditions n\'est pas respectée, la commande ne fonctionnera pas')
     if(!mutedRole) return message.channel.send(mutedGuid)
     if(mutedMember) {
         mutedMember.removeRole(mutedRole)
-        message.channel.send(`**${mutedMember.user.tag} has been unmuted.**`)
+        message.channel.send(`**${mutedMember.user.tag} a été unmute**`)
     }
 }
 
