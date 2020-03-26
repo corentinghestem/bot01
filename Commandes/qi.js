@@ -15,7 +15,7 @@ const getMember = function(message, toFind = '') {
 
 module.exports.run = async(bot, message, args) => {
     let person = getMember(message, args[0]);
-    const randomNumber1 = Math.floor(Math.random() * (130 - 0 + 1) + 0);
+    const randomNumber1 = Math.floor(Math.random() * (150 - 90 + 1) + 90);
     let msg = await message.channel.send("**Test de qi en préparation...**")
     if(!args[0]) { return setTimeout(() => {
         msg.edit(`${message.author.username} a ${randomNumber1} de qi`)

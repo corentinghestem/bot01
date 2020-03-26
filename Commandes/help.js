@@ -11,11 +11,12 @@ module.exports.run = async(bot, message, author) => {
         .setDescription(` 
         **Bonjour ${message.author.username}, bienvenue sur ma documentation !** 
         Mon préfixe est **${config.prefix}**
-        J'ai 22 commandes. `)
+        J'ai 27 commandes. `)
         .setFooter("Si tu as tout type de requête, suggestion ou problème, tu peux m'envoyer directement un message privé.")
         .setThumbnail("https://cdn.discordapp.com/attachments/678389386446110731/682539959521116202/ash-logo.png")
         .addField("**Commandes de modération [5]**", "``ban``, ``kick``, ``(un)mute``, ``clear``")
-        .addField("**Commandes utilitaires [10]**", "``help``, ``say``, ``mp``, ``embed``, ``sondage``, ``insta``, ``ascii``, ``logo``, ``reverse``, ``invite``")
+        .addField("**Commandes de statistiques [7]**", "``serveur``, ``stats``, ``roles``, ``emojis``, ``logo``, ``insta``, ``commun``")
+        .addField("**Commandes utilitaires [8]**", "``help``, ``say``, ``mp``, ``embed``, ``sondage``, ``ascii``, ``reverse``, ``invite``")
         .addField("**Commandes fun [7]**", "``charme``, ``qi``, ``chifoumi``, ``meme``, ``chien``, ``chat``, ``clash``")
     const filter = (reaction, user) => ['685952345456115737', '685951908909023277'].includes(reaction.emoji.id) && !user.bot;
        await firstEmbed.react('685952345456115737');
@@ -37,4 +38,3 @@ module.exports.run = async(bot, message, author) => {
 module.exports.help = {
     name: "help" 
 }
-

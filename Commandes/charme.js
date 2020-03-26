@@ -15,25 +15,25 @@ const getMember = function(message, toFind = '') {
         target = message.member;         
     return target;
 }
-const orientationSexuelle = ["homosexuel", "hétérosexuel", "bisexuel"]
+const orientationSexuelle = ["homosexuel", "hétérosexuel", "bisexuel", "hétérosexuel", "hétérosexuel", "hétérosexuel", "hétérosexuel"]
 
 module.exports.run = async(bot, message, args) => {
     const randomMember = message.guild.members.random()
     let concernedMember = getMember(message, args[0]);
     const botChoice = orientationSexuelle[Math.floor(Math.random() * orientationSexuelle.length)];
     const compatibilité = Math.floor(Math.random() * (100 - 0 + 1) + 0);
-    const mignon = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-    const humour = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-    const iq = Math.floor(Math.random() * (10 - 0 + 1) + 0);
-    const notation = (mignon + humour + iq) / 2.999
-    const notationGood = notation.toFixed(2)
+    const stat1 = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+    const stat2 = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+    const stat3 = Math.floor(Math.random() * (10 - 0 + 1) + 0);
+    const moyennePasDef = (stat1 + stat2 + stat3) / 3
+    const moyenneDef = moyennePasDef.toFixed(2)
     const cuteEmbed = new Discord.RichEmbed()
        .setColor("#f518ed")
        .setTitle(`**Charme de ${concernedMember.displayName}**`)
-       .addField(`**Caractéristiques :**`, stripIndents`Beauté : ${mignon}/10
-Humour : ${humour}/10
-Intelligence : ${iq}/10
-**=> Notation : ${notationGood}/10**`, true)
+       .addField(`**Caractéristiques :**`, stripIndents`Beauté : ${stat1}/10
+Humour : ${stat2}/10
+Intelligence : ${stat3}/10
+**=> Notation : ${moyenneDef}/10**`, true)
        .addField(`**Amours :**`, stripIndents`Orientation sexuelle : ${botChoice}
 Crush secret : ${randomMember.displayName}
 Admirateur secret : ${message.guild.members.random().displayName}
@@ -42,7 +42,7 @@ Admirateur secret : ${message.guild.members.random().displayName}
        .setTimestamp()
        .setThumbnail("https://i0.wp.com/l-express.ca/wp-content/uploads/2018/02/coeur2.jpg?fit=585%2C439&ssl=1")
        .setFooter(message.author.username, message.author.displayAvatarURL)
-    if(args[0])
+    if(args[0] && concernedMember.id != message.author.id)
        cuteEmbed.addField("Compatibilité :", `${concernedMember.displayName} est compatible à **${compatibilité}%** avec ${message.author.username}.`)
     message.channel.send(cuteEmbed)
 }
