@@ -19,11 +19,14 @@ module.exports.run = (bot, message, args) => {
     if(concernedMember.user.presence.game) statJoueA = `
 **Joue à :** ${concernedMember.user.presence.game.name}`
 
+
     let statPresence = concernedMember.user.presence.status
     if(statPresence == 'online') statPresence = 'En ligne'
     if(statPresence == 'idle') statPresence = 'Inactif'
     if(statPresence == 'dnd') statPresence = 'Ne pas déranger'
     if(statPresence == 'offline') statPresence = 'Hors ligne'
+
+    
 
     let statRejointLe = date(concernedMember.joinedAt)
     let statCreeLe = date(concernedMember.user.createdAt)
