@@ -19,10 +19,6 @@ module.exports.run = (bot, message, args) => {
     if(concernedMember.user.presence.game) statJoueA = `
 **Joue à :** ${concernedMember.user.presence.game.name}`
 
-    let statStreaming = ''
-    if(concernedMember.user.presence.game.streaming) statStreaming = `
-${concernedMember.user.username} est actuellement en streaming ${concernedMember.user.presence.game.streaming}`
-
     let statPresence = concernedMember.user.presence.status
     if(statPresence == 'online') statPresence = 'En ligne'
     if(statPresence == 'idle') statPresence = 'Inactif'
@@ -44,7 +40,7 @@ ${concernedMember.user.username} est actuellement en streaming ${concernedMember
 **Roles :** ${concernedMember.roles.size - 1}`, true)
        .setThumbnail(concernedMember.user.displayAvatarURL)
        .addField("**Autres**", `**Type :** ${statType}  ${statJoueA}
-**Status :** ${statPresence}${statStreaming}`)
+**Status :** ${statPresence}`)
     message.channel.send(statsEmbed)
 }
 
